@@ -10,11 +10,11 @@ export default function Hero() {
             <span className="text-[rgb(240,38,72)]">Sonu James</span>
           </h1>
 
-          <p className="mt-4 text-lg text-gray-400">
+          <p className="mt-4 text-lg text-gray-200">
             MERN Stack Developer
           </p>
 
-          <p className="mt-4 text-lg text-gray-400">
+          <p className="mt-4 text-lg text-gray-200">
             This is my official portfolio website to describe all details and work experience in webdeveloment.
           </p>
           <a
