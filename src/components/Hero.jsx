@@ -5,7 +5,7 @@ export default function Hero() {
 
         {/* LEFT CONTENT */}
         <div>
-          <h1 className="text-4xl md:text-5xl font-bold">
+          <h1 className="text-4xl md:text-5xl font-thin">
             Hello I'm{" "}
             <span className="text-[rgb(240,38,72)]">Sonu James</span>
           </h1>
@@ -35,7 +35,7 @@ export default function Hero() {
 
             {/* Your Image */}
             <img
-              src="sonu1.png" //
+              src="/images/sonu1.png" //
               alt="Sonu"
               className="relative w-72 h-72 object-cover rounded-full border-4 border-white shadow-lg"
             />

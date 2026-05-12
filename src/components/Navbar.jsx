@@ -10,12 +10,12 @@ export default function Navbar() {
       <div className="flex items-center justify-between max-w-7xl mx-auto px-6 py-5">
         
         {/* Logo */}
-        <h2 className="text-3xl md:text-4xl font-bold text-white">
+        <h2 className="text-3xl md:text-4xl font-thin text-white">
           <span className="text-[rgb(240,38,72)]">S</span>onu
         </h2>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center space-x-10 text-lg">
+        <div className="hidden md:flex items-center space-x-10 text-lg font-thin">
           
           <a
             href="#about"
