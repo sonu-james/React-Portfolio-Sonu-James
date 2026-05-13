@@ -10,24 +10,28 @@ import "swiper/css/pagination";
 export default function Projects() {
   const projects = [
     {
-      title: "Restaurant Website",
+      title: "ABDULWAHAB TRADING LLC ",
       image: "/images/1.png",
-      desc: "Modern food ordering UI with responsive design.",
+      desc: "Built the ABDULWAHAB TRADING LLC website using React and Tailwind CSS with a component-based architecture",
+      link: "https://www.wahabintl.com/",
     },
     {
-      title: "Travel Website",
+      title: "True Star Business Solutions",
       image: "/images/2.png",
-      desc: "Tour booking website with animations.",
+      desc: "Developed a modern and responsive business website using React and Tailwind CSS.",
+      link: "https://truestaroman.com/",
     },
     {
-      title: "Portfolio",
+      title: "Grade Transition System",
       image: "/images/3.png",
-      desc: "Personal portfolio with dark theme.",
+      desc: " Project refers to a UI design approach to create a modern, interactive, and visually appealing user experience.",
+      link: "https://gradetrasitionsystem.netlify.app/",
     },
     {
-      title: "Real Estate CRM",
+      title: "KTRAC",
       image: "/images/4.png",
-      desc: "Zoho integrated property dashboard.",
+      desc: "KTRAC is a cloud-based SaaS (Software as a Service) Fleet Management System developed for managing and monitoring KSRTC vehicle operations digitally.",
+      link: "https://your-realestatecrm-link.com",
     },
   ];
 
@@ -61,28 +65,35 @@ export default function Projects() {
       >
         {projects.map((project, index) => (
           <SwiperSlide key={index}>
-            <div className="bg-[#111] border border-gray-800 rounded-2xl p-6 h-[380px] hover:border-[rgb(240,38,72)] transition duration-300 shadow-lg">
+            <div className="bg-[#111] border border-gray-800 rounded-2xl p-6 h-[420px] hover:border-[rgb(240,38,72)] transition duration-300 shadow-lg flex flex-col justify-between">
 
-              <div
-                className="h-60 rounded-xl mb-4 bg-cover bg-center relative overflow-hidden"
-                style={{
-                  backgroundImage: `url(${project.image})`,
-                }}
-              >
-                <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                  <h3 className="text-2xl font-bold text-white">
-                    {project.title}
-                  </h3>
+              <div>
+                <div
+                  className="h-60 rounded-xl mb-4 bg-cover bg-center relative overflow-hidden"
+                  style={{
+                    backgroundImage: `url(${project.image})`,
+                  }}
+                >
+                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                    <h3 className="text-2xl font-bold text-white text-center px-2">
+                      {project.title}
+                    </h3>
+                  </div>
                 </div>
+
+                <p className="text-gray-400 text-sm">
+                  {project.desc}
+                </p>
               </div>
 
-              <p className="text-gray-400 text-sm">
-                {project.desc}
-              </p>
-
-              <button className="mt-4 px-4 py-2 rounded-full border border-[rgb(240,38,72)] text-[rgb(240,38,72)] hover:bg-[rgb(240,38,72)] hover:text-white transition">
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-block text-center px-4 py-2 rounded-xl border border-[rgb(240,38,72)] text-[rgb(240,38,72)] hover:bg-[rgb(240,38,72)] hover:text-white transition  w-1/2"
+              >
                 View Project
-              </button>
+              </a>
             </div>
           </SwiperSlide>
         ))}
