@@ -1,13 +1,84 @@
 import { Mail, Phone, MapPin, Send } from "lucide-react";
-
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
 export default function Contact() {
+    const [form, setForm] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState("");
+
+  const handleChange = (
+    e
+  ) => {
+    setForm({
+      ...form,
+      [e.target.name]:
+        e.target.value,
+    });
+  };
+
+  const handleSubmit =
+    async (e) => {
+      e.preventDefault();
+
+      if (
+        !form.name ||
+        !form.email ||
+        !form.message
+      ) {
+        setSuccess(
+          "Please fill all fields"
+        );
+
+        return;
+      }
+
+      setLoading(true);
+
+      try {
+        await emailjs.send(
+          "service_tf02cgt",
+          "template_5xbvzha",
+          {
+            from_name:
+              form.name,
+            from_email:
+              form.email,
+            message:
+              form.message,
+          },
+
+          "jLRfuorIbgbZK1wfM"
+        );
+
+        setSuccess(
+          "Message sent successfully ✅"
+        );
+
+        setForm({
+          name: "",
+          email: "",
+          message: "",
+        });
+      } catch {
+        setSuccess(
+          "Failed to send ❌"
+        );
+      }
+
+      setLoading(false);
+    };
   return (
     <section
       id="contact"
       className="py-24 px-6 bg-black text-white"
     >
       <div className="max-w-6xl mx-auto">
-        
+
         {/* Heading */}
         <div className="text-center mb-16">
           <p className="text-[rgb(240,38,72)] uppercase tracking-[4px] text-sm">
@@ -26,7 +97,7 @@ export default function Contact() {
 
         {/* Contact Card */}
         <div className="grid lg:grid-cols-2 gap-10 bg-[#111] border border-white/10 rounded-3xl overflow-hidden shadow-2xl">
-          
+
           {/* Left Side */}
           <div className="p-10 bg-gradient-to-br from-[rgb(240,38,72)]/20 to-black">
             <h3 className="text-3xl font-thin mb-6">
@@ -39,7 +110,7 @@ export default function Contact() {
             </p>
 
             <div className="space-y-6">
-              
+
               {/* Email */}
               <div className="flex items-center gap-4">
                 <div className="bg-[rgb(240,38,72)]/20 p-4 rounded-xl">
@@ -54,37 +125,37 @@ export default function Contact() {
                 </div>
               </div>
 
-{/* LinkedIn */}
-<div className="flex items-center gap-4">
-  <div className="bg-[rgb(240,38,72)]/20 p-4 rounded-xl">
-    
-    {/* LinkedIn SVG Icon */}
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className="text-[rgb(240,38,72)]"
-    >
-      <path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.48 1 4.98 2.12 4.98 3.5zM.5 8h4v16h-4V8zm7.5 0h3.8v2.2h.1c.5-.9 1.8-2.2 3.9-2.2 4.2 0 5 2.7 5 6.3V24h-4v-7.1c0-1.7 0-3.9-2.4-3.9s-2.7 1.8-2.7 3.8V24h-4V8z"/>
-    </svg>
+              {/* LinkedIn */}
+              <div className="flex items-center gap-4">
+                <div className="bg-[rgb(240,38,72)]/20 p-4 rounded-xl">
 
-  </div>
+                  {/* LinkedIn SVG Icon */}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="text-[rgb(240,38,72)]"
+                  >
+                    <path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.48 1 4.98 2.12 4.98 3.5zM.5 8h4v16h-4V8zm7.5 0h3.8v2.2h.1c.5-.9 1.8-2.2 3.9-2.2 4.2 0 5 2.7 5 6.3V24h-4v-7.1c0-1.7 0-3.9-2.4-3.9s-2.7 1.8-2.7 3.8V24h-4V8z" />
+                  </svg>
 
-  <div>
-    <p className="text-gray-400 text-sm">LinkedIn</p>
+                </div>
 
-    <a
-      href="https://www.linkedin.com/in/sonu-james-p-j-30a213110"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="font-medium hover:text-[rgb(240,38,72)] transition"
-    >
-      www.linkedin.com/in/sonu-james-p-j-30a213110
-    </a>
-  </div>
-</div>
+                <div>
+                  <p className="text-gray-400 text-sm">LinkedIn</p>
+
+                  <a
+                    href="https://www.linkedin.com/in/sonu-james-p-j-30a213110"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium hover:text-[rgb(240,38,72)] transition"
+                  >
+                    www.linkedin.com/in/sonu-james-p-j-30a213110
+                  </a>
+                </div>
+              </div>
 
               {/* Location */}
               <div className="flex items-center gap-4">
@@ -103,7 +174,7 @@ export default function Contact() {
           {/* Right Side Form */}
           <div className="p-10">
             <form className="space-y-6">
-              
+
               {/* Name */}
               <div>
                 <label className="block text-sm mb-2 text-gray-300">

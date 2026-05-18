@@ -33,6 +33,12 @@ export default function Projects() {
       desc: "KTRAC is a cloud-based SaaS (Software as a Service) Fleet Management System developed for managing and monitoring KSRTC vehicle operations digitally.",
       link: "https://your-realestatecrm-link.com",
     },
+     {
+      title: "Student Chapter Platform",
+      image: "/images/5.png",
+      desc: "Student Chapter Platform is a web-based application designed to support students by providing online learning materials, internship opportunities, and assessment management in a single platform",
+      link: "https://white-matrix-student-chapter-fronte.vercel.app/",
+    },
   ];
 
   return (
@@ -65,7 +71,7 @@ export default function Projects() {
       >
         {projects.map((project, index) => (
           <SwiperSlide key={index}>
-            <div className="bg-[#111] border border-gray-800 rounded-2xl p-6 h-[420px] hover:border-[rgb(240,38,72)] transition duration-300 shadow-lg flex flex-col justify-between">
+            <div className="bg-[#111] border border-gray-800 rounded-2xl p-6 h-[450px] hover:border-[rgb(240,38,72)] transition duration-300 shadow-lg flex flex-col justify-between">
 
               <div>
                 <div
